@@ -5,18 +5,15 @@ This is a solution to the [Order summary card challenge on Frontend Mentor](http
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
 - [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -28,20 +25,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshot-order-summary-card.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/hamzzei/order-summary-component
+- Live Site URL: https://hamzzei.github.io/
 
 ## My process
 
@@ -49,62 +38,60 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
 - CSS Grid
+- Flexbox
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+The main structure of the page was created using CSS Grid. I found this gave me the control I needed to center the main card and also control how the space around the card behaved. I wanted to include the attributes as a footer and this was a lot simpler with Grid than it would have been without it. 
 
-To see how you can add code snippets, see below:
+I used Flexbox a small amount on the page, simply to display the contents of the pricing box in a row rather than vertically. To keep things as simple as possible, I separated the content into three div containers, with the 'Annual Plan' and '$59.99/year' text all kept in the same div so they wouldn't be split up by the Flexbox container.
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div id="plan_container">
+      <img src="icon-music.svg" alt="music note symbol" id="music_img">
+      <div id="plan_details">
+        <p id="plan_type">Annual Plan</p>
+        <p id="plan_cost">$59.99/year</p>
+      </div>
+      <p id="change"><a href="#">Change</a></p>
+    </div>
 ```
+Something that was a bit of a challenge for me was adding a background image to the site because I hadn't needed to include one on any previous projects, but with a little research on w3schools I found that it was quite straightforward.
+
+I tried to get the card to scale dynamically as the screen size changes, but in the end I found that a simple media query worked very well in this instance. 
+
+Below are some of the main changes I made with the media query: 
+
 ```css
-.proud-of-this-css {
-  color: papayawhip;
+@media (min-width: 600px) {
+    body{
+        background: url(pattern-background-desktop.svg), hsl(225, 100%, 94%);
+        background-repeat: no-repeat;
+        background-size: max(1440px, 100vw) auto;
+    }
+    #card {
+        height: 43rem;
+        width: 27rem;
+        grid-template-columns: 2.5rem auto 2.5rem;
+    }
 }
 ```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+In future projects I want to use Flexbox more as I am a lot more comfortable with Grid. In this project I leaned on Grid for almost everything even when Flexbox might have been a good option, so this is definitely something I want to get better with.
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I also wanted to build the project using a mix of Math functions and relative values to make the transition from mobile view to desktop view smoother, but after finding it more difficult than I expected, I ended up using a media query on this occasion. While the media query works fine, I want to practice creating more dynamic pages in the future.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [w3schools](https://www.w3schools.com/cssref/pr_background-image.asp) - This was the page I used to help me understand how background images work.
+- [w3schools](https://www.w3schools.com/cssref/css3_pr_box-shadow.asp) - This page helped me to understand the values of the box-shadow property when I was having a few issues with them.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Github - [hamzzei](https://github.com/hamzzei)
+- Frontend Mentor - [@hamzzei](https://www.frontendmentor.io/profile/hamzzei)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
